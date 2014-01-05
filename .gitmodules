@@ -1,0 +1,3 @@
+[submodule "master_opencv"]
+	path = master_opencv
+	url = https://github.com/MasteringOpenCV/code
