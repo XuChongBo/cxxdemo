@@ -1,0 +1,28 @@
+//2015-5-10  xuchongbo
+
+package dataset;
+
+message Block {
+  required int32 x1 = 1 [default = 0];
+  required int32 y1 = 2 [default = 0];
+  required int32 x2 = 3 [default = 0];
+  required int32 y2 = 4 [default = 0];
+  optional string text = 5 [default = ''];
+
+}
+
+message BlockList{
+  repeated Block blocks = 1;    //the roi s
+}
+
+
+message ImageEntity {
+  required int32 channels = 1; 
+  required int32 height = 2;
+  required int32 width = 3;  
+  required bytes data = 4;      // the actual image data, in bytes
+  optional string recog_text = 5 [default = ''];
+  optional float score = 6 [default = 0];
+  optional string truth_text = 7 [default = ''];
+}
+
