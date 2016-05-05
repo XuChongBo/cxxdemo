@@ -8,7 +8,7 @@ namespace py = boost::python;
 
 typedef unsigned char uchar_t;
 
-
+//http://www.boost.org/doc/libs/1_55_0/libs/python/doc/tutorial/doc/html/python/exposing.html
 /**
  * Displays an image, passed in from python as an ndarray.
  */
