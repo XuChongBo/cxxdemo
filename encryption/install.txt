@@ -1,0 +1,19 @@
+
+sudo apt-get install openssl
+sudo apt-get install libssl-dev
+
+gcc md5.c  -lcrypto   for openssl functions
+
+gcc test.c -lcrypt   for linux c crypt function
+
+===
+md5.c and md5-2.c 两种实现方式，一样的结果。相比较，第二种方法更直观简单些。
+遇到的问题：
+1.sprintf时的格式，%02X和%2.2格式是一样的，强制输出两位，比如十进制的8，十六进制也是8，这个格式是控制输出两位，08。如果加密结果要小写字母显示，就是"%2.2x",大写就是"2.2X"。
+2.一定要使用unsigned char,虽然是char，其实就是个int,当然，它只有一个字节，和char的区别是，unsigned char 0~255 ,char -127~127。使用char会出问题。这个md5加密函数，返回16个十进制数，范围在0～255间，把它format为十六进制就是32为md5编码了。
+3.gcc编译的时候，后面加上参数 -lcrypto 如果系统没有安装libcrypto，是不能用这个方法的。
+
+==
+数据的类型没什么关系, 是文本，是二进制(楼主说的音频文件)，openssl都是同样对待的，
+openssl需要的字节数据: unsigned char或uint8_t, 加密的模式也不会导致不能解密,
+也就是说，模式是选ecb/cfb/ofb都没关系.
