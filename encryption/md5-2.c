@@ -16,3 +16,11 @@ strcat(buf,tmp);
 printf("%s\n",buf);
 return 0;
 }
+
+void md5_for_filename()
+{
+    //# calc md5 for filename 
+    unsigned char md[16];  //16*8 bits
+    MD5((unsigned char*)filename,strlen(filename),md);
+    printContent(md,16);
+}
