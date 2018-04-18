@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 2.8)
+project( ConvexHull )
+find_package( OpenCV REQUIRED )
+add_executable( convexhull main.cxx )
+target_link_libraries( convexhull ${OpenCV_LIBS} )

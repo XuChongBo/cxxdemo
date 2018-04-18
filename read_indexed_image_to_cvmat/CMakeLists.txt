@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 2.8)
+SET(TARGET_NAME "test")  
+project( ${TARGET_NAME} )
+find_package( OpenCV REQUIRED )
+add_executable( ${TARGET_NAME}  main.cxx )
+target_link_libraries( ${TARGET_NAME} ${OpenCV_LIBS} )
+TARGET_LINK_LIBRARIES( ${TARGET_NAME} "-lpng ")
